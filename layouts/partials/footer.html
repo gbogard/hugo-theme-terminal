@@ -14,5 +14,28 @@
 
 <script src="{{ "assets/main.js" | absURL }}"></script>
 <script src="{{ "assets/prism.js" | absURL }}"></script>
+
+<!-- Automatic links on titles -->
+<script>
+  (function addHeadingLinks(){
+    var article = document.querySelector('.post');
+    var headings = article.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    headings.forEach(function(heading){
+      if(heading.id){
+        var a = document.createElement('a');
+        a.innerHTML = heading.innerHTML;
+        a.href = '#'+heading.id;
+        a.className = 'anchor';
+        heading.innerHTML = '';
+        heading.appendChild(a);
+      }
+    });
+  })();
+</script>
+
+<!-- Instant click -->
+<script src="/js/instantclick.min.js"></script>
+<script data-no-instant>InstantClick.init();</script>
+
 <!-- Extended footer section-->
 {{ partial "extended_footer.html" . }}

@@ -11,4 +11,15 @@
 @import 'footer';
 
 @import 'prism';
-@import 'syntax';
+
+a.anchor {
+  text-decoration: none;
+}
+
+a.anchor:hover::after {
+  content: ' 🔗'
+}
+
+pre {
+  margin: 3rem 0 !important;
+}
