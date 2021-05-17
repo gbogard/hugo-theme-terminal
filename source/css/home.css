@@ -9,5 +9,16 @@
   }
 }
 
+#homepage-videos {
+  display: flex;
+
+  a {
+    margin-right: 1rem;
+    img {
+      max-height: 140px;
+    }
+  }
+}
+
 
 

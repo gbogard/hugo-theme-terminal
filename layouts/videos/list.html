@@ -1,0 +1,60 @@
+{{ define "main" }}
+<div class="posts">
+  {{ $PageContext := . }}
+  {{ range .Paginator.Pages }}
+  <div class="post on-list">
+    <h1 class="post-title">
+      <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>
+    {{ with .Params.subtitle }}
+      <h2 class="post-subtitle"><a href="{{ $.Permalink }}">{{ . | markdownify }}</a></h2>
+    {{ end }}
+    <div class="post-meta">
+      <span class="post-date">
+        {{ .Date.Format "2006-01-02" }}
+      </span>
+      {{ with .Params.Author }}<span class="post-author">::
+        {{ . }}</span>{{ end }}
+    </div>
+
+    {{ if .Params.tags }}
+    <span class="post-tags">
+      {{ range .Params.tags }}
+      #<a href="{{ (urlize (printf "tags/%s/" . )) | absLangURL }}">
+        {{- . -}}
+      </a>&nbsp;
+      {{ end }}
+    </span>
+    {{ end }}
+
+    {{ with .Params.Cover }}
+    <img src="{{ . | absURL }}" class="post-cover" />
+    {{ end }}
+
+    <div class="post-content">
+      {{ with .Params.youtubeId }}
+      <div class="video-container">
+        <iframe width="560" height="315" src="//www.youtube.com/embed/{{.}}?rel=0" frameborder="0" allowfullscreen></iframe> 
+      </div>
+      {{ end }}
+      {{ if .Params.showFullContent }}
+      {{ .Content | markdownify }}
+      {{ else if .Description }}
+      {{ .Description | markdownify }}
+      {{ else }}
+      {{ if .Truncated }}
+      {{ .Summary | markdownify }}
+      {{ end }}
+      {{ end }}
+    </div>
+
+    {{ if not .Params.showFullContent }}
+    <div>
+      <a class="read-more button"
+        href="{{.RelPermalink}}">{{ $.Site.Params.ReadMore }} →</a>
+    </div>
+    {{ end }}
+  </div>
+  {{ end }}
+  {{ partial "pagination.html" . }}
+</div>
+{{ end }}
