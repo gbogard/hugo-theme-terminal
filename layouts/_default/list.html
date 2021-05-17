@@ -9,6 +9,9 @@
   <div class="post on-list">
     <h1 class="post-title">
       <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>
+    {{ with .Params.subtitle }}
+      <h2 class="post-subtitle"><a href="{{ $.Permalink }}">{{ . | markdownify }}</a></h2>
+    {{ end }}
     <div class="post-meta">
       <span class="post-date">
         {{ .Date.Format "2006-01-02" }}

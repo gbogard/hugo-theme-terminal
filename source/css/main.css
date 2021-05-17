@@ -276,3 +276,32 @@ hr {
 .hidden {
   display: none;
 }
+
+.post-meta {
+  color: rgb(238, 114, 241)
+}
+
+
+.img-grid img {
+  width: 100%;
+}
+
+.img-grid {
+  display: grid;
+  grid-auto-rows: auto;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+  margin: 3rem 0;
+}
+
+@media screen and (min-width: 768px) {
+  .img-grid {
+    grid-template-columns:repeat(2, minmax(200px, 1fr));
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .img-grid {
+    grid-template-columns: repeat(3, minmax(300px, auto));
+  }
+}

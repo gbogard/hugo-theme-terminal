@@ -2,7 +2,8 @@
 
 @import 'font';
 @import 'buttons';
-
+@import 'jobs';
+@import 'home';
 @import 'header';
 @import 'logo';
 @import 'main';

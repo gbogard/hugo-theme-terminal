@@ -1,0 +1,2 @@
+{{ $path := path.Join .Page.File.Dir (.Get 0) }}
+{{ $path | readFile }}

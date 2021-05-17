@@ -44,6 +44,21 @@
     }
   }
 
+  &-subtitle {
+    --color: color-mod(var(--accent) a(70%));
+    --border: 2px dotted var(--color);
+    position: relative;
+    color:  var(--color);
+    margin: 0 0 15px;
+    padding-bottom: 5px;
+    border-bottom: var(--border);
+    font-size: 1.2rem;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
   &-tags {
     display: block;
     margin-bottom: 20px;
