@@ -223,15 +223,14 @@ ol {
 
   li {
     position: relative;
+
+    >ul {
+      margin-bottom: 0.5rem;
+    }
   }
 
   @media (--phone) {
     margin-left: 20px;
-  }
-
-  ul,
-  ol {
-    margin-top: 20px;
   }
 }
 
