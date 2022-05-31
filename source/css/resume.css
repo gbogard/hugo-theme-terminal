@@ -1,0 +1,41 @@
+.resume {
+  position: relative;
+
+  @media print {
+    margin-top: 1rem;
+    padding-bottom: 100rem;
+  }
+}
+
+.job {
+  margin-bottom: 2rem !important;
+  padding: 1rem 0 0 0 !important;
+  max-width: unset !important;
+  position: relative;
+
+  @media print {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+.job-title {
+  --border: none !important;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.job-title .tools {
+  padding-top: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.job-title .tools img {
+  height: 1.5rem;
+  margin: .5rem;
+}

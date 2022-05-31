@@ -1,0 +1,5 @@
+{{ with .Get "image" }}
+{{$image := resources.Get . }}
+{{ $resized := $image.Fill "130x130 Center "}}
+<img src="{{ $resized.RelPermalink}}" style="margin: 0 1rem .5rem 0; float: left;" />
+{{ end }}

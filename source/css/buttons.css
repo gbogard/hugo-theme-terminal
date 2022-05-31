@@ -67,8 +67,12 @@ a.read-more:active {
   background: none;
   box-shadow: none;
   padding: 0;
-  margin: 20px 0;
+  margin: 0 0 20px 0;
   max-width: 100%;
+
+  @media print {
+    display: none;
+  }
 }
 
 .code-toolbar {

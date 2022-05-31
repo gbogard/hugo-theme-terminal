@@ -1,0 +1,41 @@
+{{ define "main" }}
+{{ $image := resources.Get "picture.jpg" }}
+{{ $resizedImage := $image.Resize "230x" }}
+{{ $posts := first 5 (where site.RegularPages "Section" "posts") }}
+{{ $videos := first 5 (where site.RegularPages "Section" "videos") }}
+<main aria-role="main">
+  <header class="homepage-header">
+    <h1>{{.Title}}</h1>
+    {{ with .Params.subtitle }}
+    <span class="subtitle">{{.}}</span>
+    {{ end }}
+  </header>
+  <div class="homepage-content">
+    <img id="homepage-image" src="{{ $resizedImage.RelPermalink }}" alt="Picture of myself">
+    {{.Content}}
+  </div>
+  <div class="post">
+    <h3>Latest blog posts</h3>
+    <ul>
+      {{ range $posts }}
+      <li>
+        <a href="{{.Permalink}}">{{.Date.Format "2006-01-02"}} | {{.Title}}</a>
+      </li>
+      {{ end }}
+    </ul>
+    <h3>Latest videos</h3>
+    <div id="homepage-videos">
+      {{ range $videos }}
+        {{ if .Params.youtubeId }}
+          <a href="{{.Permalink}}">
+            <img alt={{.Title}} src="https://img.youtube.com/vi/{{.Params.youtubeId}}/mqdefault.jpg" />
+          </a>
+        {{ end }}
+      {{ end }}
+    </div>
+    {{readFile "./home/publicSpeaking.md" | markdownify }}
+    {{readFile "./home/opensource.md" | markdownify }}
+    {{readFile "./home/contact.md" | markdownify }}
+  </div>
+</main>
+{{ end }}

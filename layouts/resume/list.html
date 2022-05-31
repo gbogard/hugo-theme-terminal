@@ -1,0 +1,10 @@
+{{ define "main" }}
+
+<div class="posts resume">
+  {{ .Content }}
+  <h2 class="post-title">Experience</h2>
+  {{ range (.Pages.ByParam "startDate").Reverse }}
+  {{ partial "job-item.html" . }}
+  {{ end }}
+</div>
+{{ end }}

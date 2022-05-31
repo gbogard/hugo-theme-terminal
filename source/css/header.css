@@ -51,6 +51,11 @@
       right: 0;
     }
 
+    @media print {
+      display: none;
+      margin: 0;
+    }
+
     &__inner {
       display: flex;
       flex-wrap: wrap;

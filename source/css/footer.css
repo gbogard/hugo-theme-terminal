@@ -3,6 +3,10 @@
   flex-grow: 0;
   opacity: .5;
 
+  @media print {
+    display: none;
+  }
+
   &__inner {
     display: flex;
     align-items: center;
