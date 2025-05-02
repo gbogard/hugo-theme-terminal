@@ -1,6 +1,6 @@
 {{ define "main" }}
 {{ $image := resources.Get "picture.jpg" }}
-{{ $resizedImage := $image.Resize "230x" }}
+{{ $resizedImage := $image.Resize "170x" }}
 {{ $posts := first 5 (where site.RegularPages "Section" "posts") }}
 {{ $videos := first 5 (where site.RegularPages "Section" "videos") }}
 <main aria-role="main">
